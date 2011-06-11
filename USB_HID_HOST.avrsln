@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# AvrStudio Solution File, Format Version 11.00
+Project("{D1100916-62DA-4D80-A9B4-55A1E7CCEEB3}") = "Hid_Joy_Host", "Hid_Joy_Host.avrgccproj", "{4F9DBDD7-50F8-482D-BC28-BAA41BDC705C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		default|AVR = default|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F9DBDD7-50F8-482D-BC28-BAA41BDC705C}.default|AVR.ActiveCfg = default|AVR
+		{4F9DBDD7-50F8-482D-BC28-BAA41BDC705C}.default|AVR.Build.0 = default|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
