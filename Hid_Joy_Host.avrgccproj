@@ -2,12 +2,11 @@
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectVersion>1.1</ProjectVersion>
+    <ProjectVersion>5.0</ProjectVersion>
     <ProjectGuid>4f9dbdd7-50f8-482d-bc28-baa41bdc705c</ProjectGuid>
     <avrdevice>at90usb1287</avrdevice>
     <avrdeviceseries>none</avrdeviceseries>
     <OutputType>Executable</OutputType>
-  
     <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
     <AvrGccProjectExtensions>
     </AvrGccProjectExtensions>
@@ -19,7 +18,7 @@
       <ToolNumber>00B000002A14</ToolNumber>
       <Channel>
         <host>127.0.0.1</host>
-        <port>1052</port>
+        <port>1048</port>
         <ssl>False</ssl>
       </Channel>
       <ToolOptions>
@@ -33,10 +32,16 @@
           <JtagDevicesAfter>0</JtagDevicesAfter>
           <JtagInstrBitsBefore>0</JtagInstrBitsBefore>
           <JtagInstrBitsAfter>0</JtagInstrBitsAfter>
+          <JtagEnableExtResetOnStartSession>false</JtagEnableExtResetOnStartSession>
         </InterfaceProperties>
       </ToolOptions>
     </com_atmel_avrdbg_tool_jtagicemkii>
     <Name>Hid_Joy_Host</Name>
+    <Language>C</Language>
+    <UseGlobalToolchain>True</UseGlobalToolchain>
+    <GlobalToolchainPath>C:\Program Files\Atmel\AVR Studio 5.0\extensions\Application\Avr ToolChain\bin</GlobalToolchainPath>
+    <ToolchainDirPath />
+    <MakeDirPath />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'default' ">
     <OutputPath>bin\default\</OutputPath>
@@ -75,14 +80,23 @@
       </AvrGcc>
     </ToolchainSettings>
     <UsesExternalMakeFile>True</UsesExternalMakeFile>
-    <ExternalMakeFilePath>C:\AT90USB\hidjoy\default\Makefile</ExternalMakeFilePath>
+    <ExternalMakeFilePath>C:\AT90USB\usbjoyhost\default\Makefile</ExternalMakeFilePath>
     <PostBuildEvent>
     </PostBuildEvent>
     <OutputFile>hidjoyhost.elf</OutputFile>
-    <OutputDirectory>C:\AT90USB\hidjoy\default</OutputDirectory>
+    <OutputDirectory>C:\AT90USB\usbjoyhost\default</OutputDirectory>
   </PropertyGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\AvrGCC.targets" />
   <ItemGroup>
+    <Compile Include="Setup_Si4432_TX.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Si4432.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Si4432.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Folder Include="conf" />
     <Compile Include="conf\conf_scheduler.h">
       <SubType>compile</SubType>
@@ -93,12 +107,16 @@
     <Compile Include="conf\config.h">
       <SubType>compile</SubType>
     </Compile>
+    <Folder Include="lib_mcu\spi" />
     <Folder Include="modules" />
     <Folder Include="modules\usb" />
     <Compile Include="Hid_class.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Hid_class.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lib_mcu\spi\spi_drv.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="modules\usb\usb_task.h">
