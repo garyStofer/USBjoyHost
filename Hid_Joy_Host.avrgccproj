@@ -61,9 +61,10 @@
         </avrgcc.compiler.symbols.DefSymbols>
         <avrgcc.compiler.directories.IncludePaths>
           <ListValues>
-            <Value>..\..\..\usbHostmouse\.</Value>
-            <Value>..\..\..\usbHostmouse\lib_mcu</Value>
-            <Value>..\..\..\usbHostmouse\conf</Value>
+            <Value>..</Value>
+            <Value>../conf</Value>
+            <Value>../lib_mcu/spi</Value>
+            <Value>../lib_mcu</Value>
           </ListValues>
         </avrgcc.compiler.directories.IncludePaths>
         <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
@@ -723,11 +724,5 @@
     <Compile Include="Hid_joy_task.c">
       <SubType>compile</SubType>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="default\Makefile">
-      <SubType>compile</SubType>
-      <Link>Makefile</Link>
-    </None>
   </ItemGroup>
 </Project>
