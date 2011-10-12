@@ -177,6 +177,16 @@
 
 //! @}
 
+// RFM22 
+#define RFM22_NSEL_BIT 1
+#define RFM22_NIRQ_BIT 0
+
+#define RFM22_BUS_INIT()	(DDRD |= (1<<RFM22_NSEL_BIT ), DDRD &= ~(1<<RFM22_NIRQ_BIT))
+#define RFM22_SEL()			(PORTD &= ~(1<<RFM22_NSEL_BIT))
+#define RFM22_DESEL()		(PORTD |= (1<<RFM22_NSEL_BIT))
+#define RFM22_NIRQ		(PIND & (1<<RFM22_NIRQ_BIT))
+
+
 
 // USB KEY ADC Channel Definition
 #define ADC_TEMP_CH  0x00
