@@ -50,16 +50,16 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <ToolchainSettings>
       <AvrGcc>
-  <avrgcc.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>..</Value>
-      <Value>../lib_mcu</Value>
-      <Value>../conf</Value>
-    </ListValues>
-  </avrgcc.compiler.directories.IncludePaths>
-  <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
-  <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g2)</avrgcc.assembler.debugging.DebugLevel>
-</AvrGcc>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>..</Value>
+            <Value>../lib_mcu</Value>
+            <Value>../conf</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
+        <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g2)</avrgcc.assembler.debugging.DebugLevel>
+      </AvrGcc>
     </ToolchainSettings>
     <MemorySettings>
       <MemorySegments>
@@ -76,15 +76,15 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
       <AvrGcc>
-  <avrgcc.compiler.directories.IncludePaths>
-    <ListValues>
-      <Value>..</Value>
-      <Value>../lib_mcu</Value>
-      <Value>../conf</Value>
-    </ListValues>
-  </avrgcc.compiler.directories.IncludePaths>
-  <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
-</AvrGcc>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>..</Value>
+            <Value>../lib_mcu</Value>
+            <Value>../conf</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+      </AvrGcc>
     </ToolchainSettings>
     <MemorySettings>
       <MemorySegments xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -101,101 +101,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="conf\" />
-    <Folder Include="Debug\" />
-    <Folder Include="Debug\UJH_source\" />
-    <Folder Include="Debug\UJH_source\conf\" />
-    <Folder Include="Debug\UJH_source\lib_board\" />
-    <Folder Include="Debug\UJH_source\lib_board\.svn\" />
-    <Folder Include="Debug\UJH_source\lib_board\.svn\prop-base\" />
-    <Folder Include="Debug\UJH_source\lib_board\.svn\props\" />
-    <Folder Include="Debug\UJH_source\lib_board\.svn\text-base\" />
-    <Folder Include="Debug\UJH_source\lib_board\.svn\tmp\" />
-    <Folder Include="Debug\UJH_source\lib_board\.svn\tmp\prop-base\" />
-    <Folder Include="Debug\UJH_source\lib_board\.svn\tmp\props\" />
-    <Folder Include="Debug\UJH_source\lib_board\.svn\tmp\text-base\" />
-    <Folder Include="Debug\UJH_source\lib_board\usb_key\" />
-    <Folder Include="Debug\UJH_source\lib_board\usb_key\.svn\" />
-    <Folder Include="Debug\UJH_source\lib_board\usb_key\.svn\prop-base\" />
-    <Folder Include="Debug\UJH_source\lib_board\usb_key\.svn\props\" />
-    <Folder Include="Debug\UJH_source\lib_board\usb_key\.svn\text-base\" />
-    <Folder Include="Debug\UJH_source\lib_board\usb_key\.svn\tmp\" />
-    <Folder Include="Debug\UJH_source\lib_board\usb_key\.svn\tmp\prop-base\" />
-    <Folder Include="Debug\UJH_source\lib_board\usb_key\.svn\tmp\props\" />
-    <Folder Include="Debug\UJH_source\lib_board\usb_key\.svn\tmp\text-base\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\.svn\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\.svn\prop-base\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\.svn\props\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\.svn\text-base\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\.svn\tmp\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\.svn\tmp\prop-base\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\.svn\tmp\props\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\.svn\tmp\text-base\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\pll\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\pll\.svn\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\pll\.svn\prop-base\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\pll\.svn\props\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\pll\.svn\text-base\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\pll\.svn\tmp\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\pll\.svn\tmp\prop-base\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\pll\.svn\tmp\props\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\pll\.svn\tmp\text-base\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\power\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\power\.svn\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\power\.svn\prop-base\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\power\.svn\props\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\power\.svn\text-base\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\power\.svn\tmp\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\power\.svn\tmp\prop-base\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\power\.svn\tmp\props\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\power\.svn\tmp\text-base\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\spi\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\spi\.svn\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\spi\.svn\prop-base\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\spi\.svn\props\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\spi\.svn\text-base\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\spi\.svn\tmp\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\spi\.svn\tmp\prop-base\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\spi\.svn\tmp\props\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\spi\.svn\tmp\text-base\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\usb\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\usb\.svn\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\usb\.svn\prop-base\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\usb\.svn\props\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\usb\.svn\text-base\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\usb\.svn\tmp\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\usb\.svn\tmp\prop-base\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\usb\.svn\tmp\props\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\usb\.svn\tmp\text-base\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\wdt\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\wdt\.svn\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\wdt\.svn\prop-base\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\wdt\.svn\props\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\wdt\.svn\text-base\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\wdt\.svn\tmp\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\wdt\.svn\tmp\prop-base\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\wdt\.svn\tmp\props\" />
-    <Folder Include="Debug\UJH_source\lib_mcu\wdt\.svn\tmp\text-base\" />
-    <Folder Include="Debug\UJH_source\modules\" />
-    <Folder Include="Debug\UJH_source\modules\scheduler\" />
-    <Folder Include="Debug\UJH_source\modules\usb\" />
-    <Folder Include="Debug\UJH_source\modules\usb\.svn\" />
-    <Folder Include="Debug\UJH_source\modules\usb\.svn\prop-base\" />
-    <Folder Include="Debug\UJH_source\modules\usb\.svn\props\" />
-    <Folder Include="Debug\UJH_source\modules\usb\.svn\text-base\" />
-    <Folder Include="Debug\UJH_source\modules\usb\.svn\tmp\" />
-    <Folder Include="Debug\UJH_source\modules\usb\.svn\tmp\prop-base\" />
-    <Folder Include="Debug\UJH_source\modules\usb\.svn\tmp\props\" />
-    <Folder Include="Debug\UJH_source\modules\usb\.svn\tmp\text-base\" />
-    <Folder Include="Debug\UJH_source\modules\usb\host_chap9\" />
-    <Folder Include="Debug\UJH_source\modules\usb\host_chap9\.svn\" />
-    <Folder Include="Debug\UJH_source\modules\usb\host_chap9\.svn\prop-base\" />
-    <Folder Include="Debug\UJH_source\modules\usb\host_chap9\.svn\props\" />
-    <Folder Include="Debug\UJH_source\modules\usb\host_chap9\.svn\text-base\" />
-    <Folder Include="Debug\UJH_source\modules\usb\host_chap9\.svn\tmp\" />
-    <Folder Include="Debug\UJH_source\modules\usb\host_chap9\.svn\tmp\prop-base\" />
-    <Folder Include="Debug\UJH_source\modules\usb\host_chap9\.svn\tmp\props\" />
-    <Folder Include="Debug\UJH_source\modules\usb\host_chap9\.svn\tmp\text-base\" />
     <Folder Include="lib_board\" />
     <Folder Include="lib_board\usb_key\" />
     <Folder Include="lib_mcu\" />
@@ -306,29 +211,6 @@
     <Compile Include="Si4432.h">
       <SubType>compile</SubType>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Debug\makedep.mk">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="Debug\Makefile">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="Debug\tryproject2.eep">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="Debug\tryproject2.elf">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="Debug\tryproject2.hex">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="Debug\tryproject2.lss">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="Debug\tryproject2.map">
-      <SubType>compile</SubType>
-    </None>
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\AvrGCC.targets" />
 </Project>
