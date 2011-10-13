@@ -27,13 +27,13 @@
       <ToolNumber>00B000002A14</ToolNumber>
       <Channel>
         <host>127.0.0.1</host>
-        <port>1233</port>
+        <port>1254</port>
         <ssl>False</ssl>
       </Channel>
       <ToolOptions>
         <InterfaceName>JTAG</InterfaceName>
         <InterfaceProperties>
-          <JtagDbgClock>0</JtagDbgClock>
+          <JtagDbgClock>200000</JtagDbgClock>
           <JtagProgClock>1000000</JtagProgClock>
           <IspClock>150000</IspClock>
           <JtagInChain>false</JtagInChain>
@@ -47,7 +47,7 @@
     </com_atmel_avrdbg_tool_jtagicemkii>
     <preserveEEPROM>True</preserveEEPROM>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug_S5' ">
     <ToolchainSettings>
       <AvrGcc>
         <avrgcc.compiler.directories.IncludePaths>
@@ -72,8 +72,9 @@
     <GenerateMapFile>True</GenerateMapFile>
     <GenerateListFile>True</GenerateListFile>
     <GenerateEepFile>True</GenerateEepFile>
+    <UsesExternalMakeFile>False</UsesExternalMakeFile>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release_S5' ">
     <ToolchainSettings>
       <AvrGcc>
         <avrgcc.compiler.directories.IncludePaths>

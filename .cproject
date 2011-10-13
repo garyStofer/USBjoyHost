@@ -23,7 +23,7 @@
 							<option id="de.innot.avreclipse.toolchain.options.toolchain.objdump.app.debug.1638895110" name="Generate Extended Listing (Source + generated Assembler)" superClass="de.innot.avreclipse.toolchain.options.toolchain.objdump.app.debug" value="true" valueType="boolean"/>
 							<option id="de.innot.avreclipse.toolchain.options.toolchain.avrdude.app.debug.792570747" name="AVRDude" superClass="de.innot.avreclipse.toolchain.options.toolchain.avrdude.app.debug" value="true" valueType="boolean"/>
 							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF" id="de.innot.avreclipse.targetplatform.winavr.app.debug.1240939451" name="AVR Cross-Target" superClass="de.innot.avreclipse.targetplatform.winavr.app.debug"/>
-							<builder buildPath="${workspace_loc:/USBJoyHost/Debug}" errorParsers="org.eclipse.cdt.core.MakeErrorParser" id="de.innot.avreclipse.target.builder.winavr.base.1394810622" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="AVR GNU Make Builder" superClass="de.innot.avreclipse.target.builder.winavr.base"/>
+							<builder autoBuildTarget="all" buildPath="${workspace_loc:/USBJoyHost/EclipseDebug}" cleanBuildTarget="clean" enableAutoBuild="false" enableCleanBuild="true" enabledIncrementalBuild="true" id="de.innot.avreclipse.target.builder.winavr.base.1643174516" incrementalBuildTarget="all" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="AVR GNU Make Builder" parallelizationNumber="1" superClass="de.innot.avreclipse.target.builder.winavr.base"/>
 							<tool id="de.innot.avreclipse.tool.linker.winavr.1812627294" name="AVR C Linker" superClass="de.innot.avreclipse.tool.linker.winavr"/>
 							<tool command="-avr-objcopy" commandLinePattern="${COMMAND} ${FLAGS} ${INPUTS} ${OUTPUT}" errorParsers="" id="de.innot.avreclipse.tool.objcopy.flash.winavr.app.debug.1499932779" name="AVR Create Flash image" superClass="de.innot.avreclipse.tool.objcopy.flash.winavr.app.debug"/>
 							<tool command="-avr-size" commandLinePattern="${COMMAND} ${FLAGS} ${INPUTS}" errorParsers="" id="de.innot.avreclipse.tool.size.winavr.app.debug.356323359" name="Print Size" superClass="de.innot.avreclipse.tool.size.winavr.app.debug"/>
@@ -31,9 +31,9 @@
 								<option id="de.innot.avreclipse.compiler.option.debug.level.418383977" name="Generate Debugging Info" superClass="de.innot.avreclipse.compiler.option.debug.level"/>
 								<option id="de.innot.avreclipse.compiler.option.optimize.1034571771" name="Optimization Level" superClass="de.innot.avreclipse.compiler.option.optimize"/>
 								<option id="de.innot.avreclipse.compiler.option.incpath.1796440043" name="Include Paths (-I)" superClass="de.innot.avreclipse.compiler.option.incpath" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/lib_mcu}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/conf}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}&quot;"/>
 								</option>
 								<option id="de.innot.avreclipse.compiler.option.optimize.packstruct.195192867" name="Pack structs (-fpack-struct)" superClass="de.innot.avreclipse.compiler.option.optimize.packstruct" value="false" valueType="boolean"/>
 								<option id="de.innot.avreclipse.compiler.option.optimize.shortenums.1558273011" name="Short enums (-fshort-enums)" superClass="de.innot.avreclipse.compiler.option.optimize.shortenums" value="false" valueType="boolean"/>
@@ -60,6 +60,9 @@
 							<tool id="de.innot.avreclipse.tool.objdump.winavr.app.debug.1709691725" name="AVR Create Extended Listing" superClass="de.innot.avreclipse.tool.objdump.winavr.app.debug"/>
 						</toolChain>
 					</folderInfo>
+					<sourceEntries>
+						<entry excluding="Debug/Makefile" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
@@ -1326,7 +1329,7 @@
 							<option id="de.innot.avreclipse.toolchain.options.toolchain.size.app.release.137667614" name="Print Size" superClass="de.innot.avreclipse.toolchain.options.toolchain.size.app.release" value="true" valueType="boolean"/>
 							<option id="de.innot.avreclipse.toolchain.options.toolchain.avrdude.app.release.905254907" name="AVRDude" superClass="de.innot.avreclipse.toolchain.options.toolchain.avrdude.app.release" value="true" valueType="boolean"/>
 							<targetPlatform id="de.innot.avreclipse.targetplatform.winavr.app.release.1353745513" name="AVR Cross-Target" superClass="de.innot.avreclipse.targetplatform.winavr.app.release"/>
-							<builder buildPath="${workspace_loc:/USBJoyHost/Release}" id="de.innot.avreclipse.target.builder.winavr.app.release.2136166001" keepEnvironmentInBuildfile="false" name="AVR GNU Make Builder" superClass="de.innot.avreclipse.target.builder.winavr.app.release"/>
+							<builder autoBuildTarget="all" buildPath="${workspace_loc:/USBJoyHost/EclipseRelease}" cleanBuildTarget="clean" enableAutoBuild="false" enableCleanBuild="true" enabledIncrementalBuild="true" id="de.innot.avreclipse.target.builder.winavr.app.release.2136166001" incrementalBuildTarget="all" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="AVR GNU Make Builder" parallelizationNumber="1" superClass="de.innot.avreclipse.target.builder.winavr.app.release"/>
 							<tool id="de.innot.avreclipse.tool.avrdude.app.release.2016581552" name="AVRDude" superClass="de.innot.avreclipse.tool.avrdude.app.release"/>
 							<tool id="de.innot.avreclipse.tool.linker.winavr.app.release.2045500111" name="AVR C Linker" superClass="de.innot.avreclipse.tool.linker.winavr.app.release"/>
 							<tool id="de.innot.avreclipse.tool.objdump.winavr.app.release.1252984955" name="AVR Create Extended Listing" superClass="de.innot.avreclipse.tool.objdump.winavr.app.release"/>
