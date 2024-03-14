@@ -5,12 +5,13 @@
  */ 
 #include "Hid_class.h"
 
+#ifdef USE_HID_PARSER
+
 #define G_STACK_SZ 3
 static t_Global_items gloItmDat[G_STACK_SZ];
 
 static t_Local_items  locItmDat;
 t_xlate_offs X_tabl[nJS_items];
-
 
 
 
@@ -21,6 +22,7 @@ t_xlate_offs X_tabl[nJS_items];
    so that the application layer can interpret the input pipe data correctly for any HID compliant joystick device.
    See www.usb.org/developers/devclass_docs/HID1_11.pdf chapter 6.2.2
 */
+
 
 bool
 Hid_Parse_ReportDesc(U8 ifc)
@@ -40,10 +42,11 @@ Hid_Parse_ReportDesc(U8 ifc)
 	U8 bit_cnt =0;
 	U8 u_type;
 
-
 	
 	hid_repSize = 	usb_tree.device[selected_device].interface[ifc].hid_rep_sz;
 	host_get_hid_repport_descriptor();		// reads data_stage[] -- entire size of array hopefully enough
+	
+
 	
 	item =(void*) data_stage;
 	end_p = (void *) data_stage;
@@ -70,7 +73,7 @@ Hid_Parse_ReportDesc(U8 ifc)
 	{
 		i_tag = item->tag;
 		i_type = item->type;
-		sz = (item->sz==3) ? 4 : item->sz;	// sz==3 measn 4 bytes
+		sz = (item->sz==3) ? 4 : item->sz;	// items size of 3 means 4 bytes
 				
 		if (sz==1) 
 			dat = *(U8 *) (item+1);
@@ -81,18 +84,33 @@ Hid_Parse_ReportDesc(U8 ifc)
 		
 		switch (i_type)
 		{
-			case MAIN:
-				if (i_tag == Input)
-				{
-					 // build the translate_map[] from the Usage fifo and report size & counts
-					if (!isJoystickDevice )		//Only interested in joystick devices
-						break;
+			case MAIN: //0x00		
+
+				if (i_tag == Input && dat == 0x1  && gloItmDat[g_ndx].usage_page == Pg_Button && isJoystickDevice)	
+				// the extra buttons that show up in the 3 undefined (Const) bits at the end of report usage Pg_Button ( 6 and 7 )  of the interlink controller
+				{								// for these interlink joystick controllers
+					u_ndx = b6;					// starting at Button 6 
+					for (i=0; i < gloItmDat[g_ndx].report_count; i++)
+					{
+						X_tabl[u_ndx].offs =  bit_cnt / 8;
+						X_tabl[u_ndx].shift = bit_cnt % 8;
+						X_tabl[u_ndx].n_bits = gloItmDat[g_ndx].report_size;
+						bit_cnt += gloItmDat[g_ndx].report_size; 
+						u_ndx++;
+						
+						if (u_ndx > b8) // not to overflow the X_table[] in case of more undefined buttons
+							break;
+					}
 					
+				}
+				else if (i_tag == Input && dat == 0x2 && isJoystickDevice ) // regular data input -- build the translate_map[] from the Usage fifo and report size & counts
+				{
+
 					// for each report item pertaining to this input token	
 					
 					for (ii=i=0; i < gloItmDat[g_ndx].report_count; i++)
 					{
-						if (locItmDat.usg_fifo_ndx != 0)	// no usage associated with it -- nothing to record these are fill bits 
+						if (locItmDat.usg_fifo_ndx != 0)	// no usage associated with it -- nothing to record, these are fill bits 
 						{
 							u_type = locItmDat.usage_fifo[ii];
 						
@@ -110,24 +128,23 @@ Hid_Parse_ReportDesc(U8 ifc)
 										case U_Y:
 											u_ndx=Pitch;
 											break;
-										
-										case U_Rz:
 										case U_Ry:
 											u_ndx=Yaw;
 											break;
-											
 										case U_Z:
-										case U_Slider:
 											u_ndx=Throttle;
 											break;
-										case U_Hat:
-											u_ndx=Hat;
+										case U_Rx:
+											u_ndx=Knob;
 											break;
+										case U_Vy:
+											u_ndx=TrimSw; 		
+
 									}
 									break;
 								
 								case Pg_Button:
-									if (u_type>= U_btn1 && u_type <= U_btn12)
+									if (u_type>= U_btn1 && u_type <= U_btn8)
 									{
 										u_ndx = b1+u_type-1;  // -1 since there is no usage Button0								}
 									}
@@ -148,18 +165,17 @@ Hid_Parse_ReportDesc(U8 ifc)
 						bit_cnt += gloItmDat[g_ndx].report_size; 
 					}	// end for report count						
 				}					
-				else if (i_tag == Collection )
-				{	// This checks to see that the attached device is a Joystick or Game-pad 
+				else if (i_tag == Collection && dat == Coll_Application )
+				{	// This checks to see that the attached device is a Joystick.
+					// was there a "Usage Joystick" and was there a global Usage Page "Generic Desktop" preceding  this "Application Collection"
  				
-					if (locItmDat.usg_fifo_ndx!=0)
-						i = locItmDat.usage_fifo[locItmDat.usg_fifo_ndx-1];	// top most Usage if there was one
-					else 
-						i=0;
-							
-					if ( gloItmDat[g_ndx].usage_page == Pg_Generic && dat == Coll_Application )
+					if ( gloItmDat[g_ndx].usage_page == Pg_Generic )    
 					{
-						if (i == U_Joystick || i == U_Gamepad)
-							isJoystickDevice = true;
+						if (locItmDat.usg_fifo_ndx > 0) // top most Usage if there was one
+						{
+							if (locItmDat.usage_fifo[locItmDat.usg_fifo_ndx-1] == U_Joystick)
+								isJoystickDevice = true;
+						}
 					} 
 				}
 				else if (i_tag == EndCollection)
@@ -167,10 +183,10 @@ Hid_Parse_ReportDesc(U8 ifc)
 								
 				}
 				//all Main items clear all local items after processing
-				locItmDat.usg_fifo_ndx =0;					
+				locItmDat.usg_fifo_ndx = 0;					
 			break;
 			
-			case GLOBAL:
+			case GLOBAL: //0x1
 				if (i_tag == UsagePage)
 					gloItmDat[g_ndx].usage_page = dat;
 				else if (i_tag == ReportSz)
@@ -179,7 +195,7 @@ Hid_Parse_ReportDesc(U8 ifc)
 				{	
 					// If the report Descriptor contained a report ID it is always the first 8bits in a report.
 					gloItmDat[g_ndx].report_id = dat;
-					bit_cnt = 8;			// This is to skip over the report ID value if there is one given
+					bit_cnt = 8;			// This is to skip over the report ID when inputting values if there is one given
 				}					
 				else if (i_tag == ReportCnt)
 					gloItmDat[g_ndx].report_count =dat;
@@ -191,10 +207,11 @@ Hid_Parse_ReportDesc(U8 ifc)
 				else if ( i_tag == Pop)
 				{  if (g_ndx > 0)
 						g_ndx--;		
-				}					
+				}	
+				
 			break;
 			
-			case LOCAL:
+			case LOCAL: //0x2
 				if (i_tag == Usage)
 				{
 					if ( locItmDat.usg_fifo_ndx < ReportItemCount )			// Overflowing usage fifoDon't record any more
@@ -218,3 +235,14 @@ Hid_Parse_ReportDesc(U8 ifc)
 	 
 	return isJoystickDevice;
 };	
+#else
+
+// See VID_PID table in conf_USB.h for the only controllers that are enumerated therefore eliminating the need to check for Type of device 
+// and no need to parse the his-report 
+bool
+Hid_Parse_ReportDesc(U8 ifc)
+{
+	return true;
+}
+
+#endif

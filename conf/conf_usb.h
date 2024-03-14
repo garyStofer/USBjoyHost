@@ -102,8 +102,8 @@ extern U8  HID_Device_PipeIn;
    //!   #define VID_PID_TABLE      {VID1, number_of_pid_for_this_VID1, PID11_value,..., PID1X_Value \n
    //!                              ...\n
    //!                              ,VIDz, number_of_pid_for_this_VIDz, PIDz1_value,..., PIDzX_Value}
-   #define VID_PID_TABLE            {VID_ATMEL, 2, PID_MegaHIDMouse, 0x2014 \
-                                    ,0x0123, 3, 0x2000, 0x2100, 0x1258}
+   #define VID_PID_TABLE            {0x1781, 1, 0x0e56,\
+	   								 0x061c, 1, 0x10}	 /*	futaba and Act labs interlink */
 
    //!   @brief CLASS/SUBCLASS_PROTOCOL supported table list
    //!
@@ -143,9 +143,10 @@ extern U8  HID_Device_PipeIn;
    //! The host controller will be limited to the strict VID/PID list.
    //! When enabled, if the device PID/VID does not belongs  to the supported list,
    //! the host controller library will not go to deeper configuration, but to error state.
-   #define HOST_STRICT_VID_PID_TABLE      DISABLE
-   // for class type interfaces vid-pid check nmakes no sense 
-   #define HOST_VID_PID_CHECK			DISABLE
+   #define HOST_STRICT_VID_PID_TABLE      ENABLE
+   
+   // for class type interfaces vid-pid check makes no sense 
+   #define HOST_VID_PID_CHECK			ENABLE
 
    //! Try to configure the host pipe according to the device descriptors received
    #define HOST_AUTO_CFG_ENDPOINT         ENABLE

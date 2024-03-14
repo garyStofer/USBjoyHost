@@ -63,9 +63,10 @@
 */
 
 /**************** TX Modulation Options ****************/
-
-#define Si4432_TX_POWER                            0x1F		 // MAX Power 
-/*
+															
+#define Si4432_TX_POWER                            0x05	// power  bits 0-2 == tx level  bit 3 == lna_sw bust be 0 
+/*														// for 4432  0=+1dbm, 3= +8dbm , 5=+14dbm, 7=+20dbm 
+														// power over 5 (14dbm) causes the USB side of the USB stick to fail , interference				
         Address:                0x6d
 */
 

@@ -46,6 +46,8 @@
       </ToolOptions>
     </com_atmel_avrdbg_tool_jtagicemkii>
     <preserveEEPROM>True</preserveEEPROM>
+    <ToolchainName>com.Atmel.AVRGCC8.C</ToolchainName>
+    <ToolchainFlavour>Native</ToolchainFlavour>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug_S5' ">
     <ToolchainSettings>

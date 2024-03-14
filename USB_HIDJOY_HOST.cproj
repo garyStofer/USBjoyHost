@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>6.2</ProjectVersion>
+    <ProjectGuid>{3e59dc5a-d14a-479f-8ce3-5ccaf5302969}</ProjectGuid>
+    <avrdevice>AT90USB1287</avrdevice>
+    <avrdeviceseries>none</avrdeviceseries>
+    <OutputType>Executable</OutputType>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <AvrGccProjectExtensions>
+    </AvrGccProjectExtensions>
+    <AssemblyName>tryproject1</AssemblyName>
+    <Name>USB_HIDJOY_HOST</Name>
+    <RootNamespace>tryproject1</RootNamespace>
+    <Language>C</Language>
+    <avrtool>com.atmel.avrdbg.tool.jtagicemkii</avrtool>
+    <avrtoolinterface>JTAG</avrtoolinterface>
+    <com_atmel_avrdbg_tool_jtagicemkii>
+      <ToolType>com.atmel.avrdbg.tool.jtagicemkii</ToolType>
+      <ToolName>JTAGICE mkII</ToolName>
+      <ToolNumber>00B000002A14</ToolNumber>
+      <Channel>
+        <host>127.0.0.1</host>
+        <port>1254</port>
+        <ssl>False</ssl>
+      </Channel>
+      <ToolOptions>
+        <InterfaceName>JTAG</InterfaceName>
+        <InterfaceProperties>
+          <JtagDbgClock>200000</JtagDbgClock>
+          <JtagProgClock>1000000</JtagProgClock>
+          <IspClock>150000</IspClock>
+          <JtagInChain>false</JtagInChain>
+          <JtagEnableExtResetOnStartSession>false</JtagEnableExtResetOnStartSession>
+          <JtagDevicesBefore>0</JtagDevicesBefore>
+          <JtagDevicesAfter>0</JtagDevicesAfter>
+          <JtagInstrBitsBefore>0</JtagInstrBitsBefore>
+          <JtagInstrBitsAfter>0</JtagInstrBitsAfter>
+        </InterfaceProperties>
+      </ToolOptions>
+    </com_atmel_avrdbg_tool_jtagicemkii>
+    <preserveEEPROM>True</preserveEEPROM>
+    <ToolchainName>com.Atmel.AVRGCC8.C</ToolchainName>
+    <ToolchainFlavour>Native</ToolchainFlavour>
+    <KeepTimersRunning>true</KeepTimersRunning>
+    <OverrideVtor>false</OverrideVtor>
+    <CacheFlash>true</CacheFlash>
+    <ProgFlashFromRam>true</ProgFlashFromRam>
+    <RamSnippetAddress>0x20000000</RamSnippetAddress>
+    <UncachedRange />
+    <OverrideVtorValue>exception_table</OverrideVtorValue>
+    <BootSegment>2</BootSegment>
+    <eraseonlaunchrule>0</eraseonlaunchrule>
+    <AsfFrameworkConfig>
+      <framework-data xmlns="">
+        <options />
+        <configurations />
+        <files />
+        <documentation help="" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.19.0" />
+        </dependencies>
+      </framework-data>
+    </AsfFrameworkConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug_S5' ">
+    <UsesExternalMakeFile>False</UsesExternalMakeFile>
+    <OutputFileName>USB_HIDJOY_HOST</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <ToolchainSettings>
+      <AvrGcc xmlns="">
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>..</Value>
+            <Value>../lib_mcu</Value>
+            <Value>../conf</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
+        <avrgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </avrgcc.linker.libraries.Libraries>
+        <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcc.assembler.debugging.DebugLevel>
+      </AvrGcc>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release_S5' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <OutputFileName>USB_HIDJOY_HOST</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <ToolchainSettings>
+      <AvrGcc xmlns="">
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>..</Value>
+            <Value>../lib_mcu</Value>
+            <Value>../conf</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+        <avrgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </avrgcc.linker.libraries.Libraries>
+      </AvrGcc>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="conf\" />
+    <Folder Include="lib_board\" />
+    <Folder Include="lib_board\usb_key\" />
+    <Folder Include="lib_mcu\" />
+    <Folder Include="lib_mcu\pll\" />
+    <Folder Include="lib_mcu\power\" />
+    <Folder Include="lib_mcu\spi\" />
+    <Folder Include="lib_mcu\usb\" />
+    <Folder Include="lib_mcu\wdt\" />
+    <Folder Include="modules\" />
+    <Folder Include="modules\scheduler\" />
+    <Folder Include="modules\usb\" />
+    <Folder Include="modules\usb\host_chap9\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="conf\config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="conf\conf_scheduler.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="conf\conf_usb.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Hid_class.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Hid_class.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Hid_joy_task.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lib_board\usb_key\usb_key.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lib_board\usb_key\usb_key.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lib_mcu\compiler.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lib_mcu\pll\pll_drv.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lib_mcu\power\power_drv.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lib_mcu\power\power_drv.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lib_mcu\spi\spi_drv.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lib_mcu\spi\spi_lib.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lib_mcu\usb\usb_drv.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lib_mcu\usb\usb_drv.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lib_mcu\wdt\wdt_drv.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lib_mcu\wdt\wdt_drv.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="modules\scheduler\scheduler.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="modules\scheduler\scheduler.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="modules\usb\host_chap9\usb_host_enum.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="modules\usb\host_chap9\usb_host_enum.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="modules\usb\host_chap9\usb_host_task.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="modules\usb\host_chap9\usb_host_task.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="modules\usb\usb_commun.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="modules\usb\usb_commun_hid.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="modules\usb\usb_task.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="modules\usb\usb_task.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Setup_Si4432_TX.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Si4432.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Si4432.h">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\AvrGCC.targets" />
+</Project>

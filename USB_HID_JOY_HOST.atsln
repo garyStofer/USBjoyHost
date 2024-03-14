@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{D1100916-62DA-4D80-A9B4-55A1E7CCEEB3}") = "USB_HIDJOY_HOST", "USB_HIDJOY_HOST.cproj", "{3E59DC5A-D14A-479F-8CE3-5CCAF5302969}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug_S5|AVR = Debug_S5|AVR
+		Release_S5|AVR = Release_S5|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E59DC5A-D14A-479F-8CE3-5CCAF5302969}.Debug_S5|AVR.ActiveCfg = Debug_S5|AVR
+		{3E59DC5A-D14A-479F-8CE3-5CCAF5302969}.Debug_S5|AVR.Build.0 = Debug_S5|AVR
+		{3E59DC5A-D14A-479F-8CE3-5CCAF5302969}.Release_S5|AVR.ActiveCfg = Release_S5|AVR
+		{3E59DC5A-D14A-479F-8CE3-5CCAF5302969}.Release_S5|AVR.Build.0 = Release_S5|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

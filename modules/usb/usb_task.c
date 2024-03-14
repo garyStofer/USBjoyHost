@@ -355,10 +355,10 @@ void usb_task(void)
 __interrupt void usb_general_interrupt()
 #endif
 {
-   #if (USB_HOST_PIPE_INTERRUPT_TRANSFER == ENABLE)
+#if (USB_HOST_PIPE_INTERRUPT_TRANSFER == ENABLE)
    U8 i;
    U8 save_pipe_nb;
-   #endif
+#endif
 // ---------- DEVICE events management -----------------------------------
 #if (USB_DEVICE_FEATURE == ENABLED)
 
@@ -411,7 +411,7 @@ __interrupt void usb_general_interrupt()
             Usb_enable_reset_interrupt();
             
          }
-         else // Workarround to make the USB enter power down mode again (spurious transcient detected on the USB lines)
+         else // Work arround to make the USB enter power down mode again (spurious transient detected on the USB lines)
          {
             Usb_ack_wake_up();                 // clear wake up to detect next event
             Usb_send_event(EVT_USB_SUSPEND);
