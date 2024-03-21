@@ -57,7 +57,7 @@ SBIT (PB,     SFR_P0, 7);
 #define TRIM_MAX 50
 
 
-enum PCM_CH { Thr=0,Roll,Pitch,Yaw,Knob,Sw1,Sw2,Sw3,Sw4,NUM_PCM_CH};
+enum PCM_CH { Thr=0,Roll,Pitch,Yaw,Knob,CH6,CH7,CH8,CH9,NUM_PCM_CH};
 static unsigned  char  PCMchannel[NUM_PCM_CH] = {PWM_MIN,0x7d,0x7d,0x7d,0x7d,0,0,0,0};		// variable channnel time in 4us increments       
 
 
@@ -596,10 +596,16 @@ must be set back to 0.
 					temp = /*0xff - */ payload[KNOB];
 					PCMchannel[Knob] = (temp>PWM_MAX)?PWM_MAX:(temp<PWM_MIN)?PWM_MIN:temp;		
 
-					PCMchannel[Sw1] = (payload[SW1_8] &0x1) ? PWM_MAX : PWM_MIN; 		// Left 2way Switch
-					PCMchannel[Sw2] = (payload[SW1_8] &0x2) ? PWM_MAX : PWM_MIN; 		// Right 2way switch
-					PCMchannel[Sw3] = (payload[SW1_8] &0x4) ? PWM_MAX : PWM_MIN; 		// Red Reset Button 
-					PCMchannel[Sw4] = (payload[SW1_8] &0x8) ? PWM_MAX : PWM_MIN;	    // Left 3way switch pos down 
+					PCMchannel[CH6] = (payload[SW1_8] &0x1) ? PWM_MAX : PWM_MIN; 		// Left 2way Switch
+					PCMchannel[CH7] = (payload[SW1_8] &0x2) ? PWM_MAX : PWM_MIN; 		// Right 2way switch
+					PCMchannel[CH8] = (payload[SW1_8] &0x4) ? PWM_MAX : PWM_MIN; 		// Red Reset Button 
+	
+					if ( payload[SW1_8] &0x8)		// Left 3way switch 
+						PCMchannel[CH9] = PWM_MIN ;
+					else if ( payload[SW1_8] &0x10)
+						PCMchannel[CH9] = PWM_MAX ;
+					else 
+						PCMchannel[CH9] = PWM_NEUT ;
 
 
 				}	
